@@ -1,0 +1,23 @@
+name: Web Monitor
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # toutes les 5 minutes
+  workflow_dispatch: {}    # permet de lancer manuellement
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run monitor
+        run: python monitor.py
