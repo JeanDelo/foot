@@ -17,7 +17,11 @@ report = []
 for url in urls:
     try:
         r = requests.get(url, timeout=20)
-        r.raise_for_status()
+        # On n’arrête plus le script si la page n’est pas accessible
+        if r.status_code != 200:
+            report.append(f"⚠️ Impossible d’accéder à {url} (status {r.status_code})")
+            continue
+
         text = r.text
         h = hash_content(text)
 
@@ -36,9 +40,10 @@ for url in urls:
             f.write(h)
 
     except Exception as e:
+        # Au lieu de planter, on note l’erreur et on continue
         report.append(f"⚠️ Erreur sur {url}: {e}")
 
-if changed:
+if report:
     print("\n".join(report))
 else:
     print("Aucun changement", datetime.now())
