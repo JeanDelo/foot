@@ -1,9 +1,8 @@
 name: Web Monitor
 
-# Quand lancer le workflow
 on:
   schedule:
-    - cron: "0 * * * *"  # toutes les heures, minute 0
+    - cron: "0 * * * *"  # toutes les heures
   workflow_dispatch: {}   # permet de lancer manuellement
 
 jobs:
@@ -22,8 +21,11 @@ jobs:
 
       # 3️⃣ Installer les dépendances nécessaires
       - name: Install dependencies
-        run: pip install requests beautifulsoup4 lxml
+        run: pip install requests beautifulsoup4 lxml pytz
 
       # 4️⃣ Lancer le script monitor.py
       - name: Run monitor
         run: python monitor.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
