@@ -1,23 +1,29 @@
 name: Web Monitor
 
+# Quand lancer le workflow
 on:
   schedule:
-    - cron: "*/5 * * * *"  # toutes les 5 minutes
-  workflow_dispatch: {}    # permet de lancer manuellement
+    - cron: "0 * * * *"  # toutes les heures, minute 0
+  workflow_dispatch: {}   # permet de lancer manuellement
 
 jobs:
   check:
     runs-on: ubuntu-latest
+
     steps:
+      # 1️⃣ Récupérer le dépôt
       - uses: actions/checkout@v4
 
+      # 2️⃣ Installer Python
       - name: Install Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
+      # 3️⃣ Installer les dépendances nécessaires
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests beautifulsoup4 lxml
 
+      # 4️⃣ Lancer le script monitor.py
       - name: Run monitor
         run: python monitor.py
