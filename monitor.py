@@ -1,54 +1,98 @@
 import requests
-import hashlib
+import json
 import os
+import difflib
 from datetime import datetime
-import sys
+import pytz  # Pour heure de Paris
 
-def hash_content(content):
-    return hashlib.sha256(content.encode("utf-8")).hexdigest()
+STATE_FILE = "last_state.json"
+URLS_FILE = "urls.txt"
 
-# Crée le dossier data si nécessaire
-os.makedirs("data", exist_ok=True)
+GITHUB_REPO = os.environ["GITHUB_REPOSITORY"]
+GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 
-# Lire toutes les URLs depuis urls.txt
-with open("urls.txt") as f:
-    urls = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+HEADERS = {
+    "Authorization": f"token {GITHUB_TOKEN}",
+    "Accept": "application/vnd.github+json"
+}
 
-changed = False
-report = []
+# --- fonctions utilitaires ---
 
-for url in urls:
-    try:
-        r = requests.get(url, timeout=20)
-        if r.status_code != 200:
-            report.append(f"⚠️ Impossible d’accéder à {url} (status {r.status_code})")
+def load_state():
+    if os.path.exists(STATE_FILE):
+        with open(STATE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+def save_state(state):
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2, ensure_ascii=False)
+
+def visible_text(html):
+    """Extraire les lignes visibles de la page (simple, robuste)"""
+    return "\n".join(line.strip() for line in html.splitlines() if line.strip())
+
+def make_diff(old, new, max_lines=20):
+    """Créer un diff lisible entre deux textes"""
+    diff = list(difflib.unified_diff(
+        old.splitlines(),
+        new.splitlines(),
+        lineterm=""
+    ))
+    return "\n".join(diff[:max_lines])
+
+def create_issue(title, body):
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/issues"
+    requests.post(url, headers=HEADERS, json={
+        "title": title,
+        "body": body
+    })
+
+# --- chargement état précédent ---
+state = load_state()
+new_state = {}
+
+current_group = "Sans catégorie"
+
+# --- lecture des URLs ---
+with open(URLS_FILE, "r", encoding="utf-8") as f:
+    for line in f:
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith("#"):
+            current_group = line.replace("#", "").strip()
             continue
 
-        text = r.text
-        h = hash_content(text)
+        url = line
 
-        filename = "data/" + hashlib.md5(url.encode()).hexdigest() + ".txt"
+        try:
+            response = requests.get(url, timeout=20)
+            response.raise_for_status()
+            text = visible_text(response.text)
+        except Exception as e:
+            create_issue(
+                f"⚠️ Erreur d’accès ({current_group})",
+                f"URL : {url}\n\nErreur : {e}"
+            )
+            continue
 
-        if os.path.exists(filename):
-            with open(filename) as old:
-                if old.read() != h:
-                    changed = True
-                    report.append(f"🔔 Changement détecté : {url}")
-        else:
-            report.append(f"🆕 Page suivie : {url}")
-            changed = True
+        old_text = state.get(url)
 
-        with open(filename, "w") as f:
-            f.write(h)
+        if old_text and old_text != text:
+            diff = make_diff(old_text, text)
 
-    except Exception as e:
-        report.append(f"⚠️ Erreur sur {url}: {e}")
+            # heure Paris
+            tz = pytz.timezone("Europe/Paris")
+            paris_time = datetime.now(tz).strftime('%Y-%m-%d %H:%M')
 
-# Affichage final
-if report:
-    print("\n".join(report))
-else:
-    print("Aucun changement", datetime.now())
+            create_issue(
+                f"🔔 Score modifié – {current_group}",
+                f"""La page a changé.
 
-# Toujours exit 0 pour que le workflow GitHub ne marque pas d’erreur
-sys.exit(0)
+URL :
+{url}
+
+CHANGEMENT DÉTECTÉ :
+```diff
+{diff}
