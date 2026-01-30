@@ -1,91 +1,65 @@
-import requests
 import json
-import os
-import difflib
-from datetime import datetime
+from playwright.sync_api import sync_playwright
+import smtplib
+from email.mime.text import MIMEText
 
-# --- fichiers ---
-STATE_FILE = "last_state.json"
-URLS_FILE = "urls.txt"
+# -------------------
+# CONFIGURATION MAIL
+# -------------------
+SMTP_SERVER = "smtp.example.com"        # serveur SMTP de ton mail
+SMTP_PORT = 587                          # port SMTP (souvent 587)
+SMTP_USER = "tonmail@example.com"       # ton adresse mail
+SMTP_PASSWORD = "tonmotdepasse"         # mot de passe / token
+MAIL_TO = "destinataire@example.com"    # mail qui reçoit la notification
 
-# --- variables GitHub ---
-GITHUB_REPOSITORY = os.environ.get("GITHUB_REPOSITORY")
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+def send_mail(subject, body):
+    msg = MIMEText(body)
+    msg["Subject"] = subject
+    msg["From"] = SMTP_USER
+    msg["To"] = MAIL_TO
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        server.starttls()
+        server.login(SMTP_USER, SMTP_PASSWORD)
+        server.send_message(msg)
 
-# Vérification des variables
-if not GITHUB_REPOSITORY or not GITHUB_TOKEN:
-    raise ValueError("⚠️ GITHUB_REPOSITORY ou GITHUB_TOKEN non défini !")
+# -------------------
+# URL à surveiller
+# -------------------
+URL = "https://var.fff.fr/football-animation-et-loisirs/?site_id=6962_6098_10307_27589_23969_4"
 
-HEADERS = {
-    "Authorization": f"token {GITHUB_TOKEN}",
-    "Accept": "application/vnd.github+json"
-}
+# Fichier pour mémoriser l'état précédent
+STATE_FILE = "state.json"
 
-# --- fonctions utilitaires ---
-def load_state():
-    if os.path.exists(STATE_FILE):
-        with open(STATE_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {}
+# Charger l'état précédent
+try:
+    with open(STATE_FILE, "r") as f:
+        state = json.load(f)
+except:
+    state = {"teams": []}
 
-def save_state(state):
-    with open(STATE_FILE, "w", encoding="utf-8") as f:
-        json.dump(state, f, ensure_ascii=False, indent=2)
+# -------------------
+# Lancer Playwright pour récupérer les noms d'équipes
+# -------------------
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page()
+    page.goto(URL)
+    page.wait_for_timeout(3000)  # attendre que le JS charge la page
+    # Sélecteur CSS exact pour les noms d'équipes sur cette page FFF
+    teams = [el.inner_text() for el in page.query_selector_all("div.team-name")]
+    browser.close()
 
-def fetch_url(url):
-    try:
-        r = requests.get(url, timeout=20)
-        r.raise_for_status()
-        return r.text
-    except Exception as e:
-        print(f"Erreur fetch {url}: {e}")
-        return None
+# -------------------
+# Comparer avec l'état précédent
+# -------------------
+new_teams = [t for t in teams if t not in state["teams"]]
 
-def create_issue(title, body):
-    url = f"https://api.github.com/repos/{GITHUB_REPOSITORY}/issues"
-    data = {"title": title, "body": body}
-    r = requests.post(url, headers=HEADERS, json=data)
-    if r.status_code == 201:
-        print(f"Issue créée: {title}")
-    else:
-        print(f"Erreur création issue {r.status_code}: {r.text}")
+if new_teams:
+    body = "Nouveaux matchs détectés :\n" + "\n".join(new_teams)
+    send_mail("Notification FFF - Nouveaux matchs", body)
 
-# --- logique principale ---
-def main():
-    state = load_state()
-    urls = []
-
-    with open(URLS_FILE, "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#"):
-                urls.append(line)
-
-    for url in urls:
-        content = fetch_url(url)
-        if content is None:
-            continue
-
-        old_content = state.get(url)
-        if old_content != content:
-            # calcul diff
-            diff = "\n".join(difflib.unified_diff(
-                old_content.splitlines() if old_content else [],
-                content.splitlines(),
-                fromfile='Avant',
-                tofile='Après',
-                lineterm=''
-            ))
-            # horodatage UTC
-            now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
-            issue_title = f"Modification détectée sur {url} à {now}"
-            issue_body = f"Diff AVANT/APRÈS :\n```\n{diff}\n```"
-            create_issue(issue_title, issue_body)
-
-            # mettre à jour l'état
-            state[url] = content
-
-    save_state(state)
-
-if __name__ == "__main__":
-    main()
+# -------------------
+# Sauvegarder le nouvel état
+# -------------------
+with open(STATE_FILE, "w") as f:
+    json.dump({"teams": teams}, f)
