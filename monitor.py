@@ -1,65 +1,92 @@
+import requests
+import hashlib
 import json
-from playwright.sync_api import sync_playwright
+import os
 import smtplib
 from email.mime.text import MIMEText
 
-# -------------------
-# CONFIGURATION MAIL
-# -------------------
-SMTP_SERVER = "smtp.example.com"        # serveur SMTP de ton mail
-SMTP_PORT = 587                          # port SMTP (souvent 587)
-SMTP_USER = "tonmail@example.com"       # ton adresse mail
-SMTP_PASSWORD = "tonmotdepasse"         # mot de passe / token
-MAIL_TO = "destinataire@example.com"    # mail qui reçoit la notification
+# =====================
+# CONFIGURATION
+# =====================
+
+URLS = [
+    "https://var.fff.fr/football-animation-et-loisirs/?site_id=6962_6098_10307_27589_23969_1",
+    "https://var.fff.fr/football-animation-et-loisirs/?site_id=6962_6098_10307_27589_23969_4"
+]
+
+STATE_FILE = "state.json"
+
+# ---- EMAIL ----
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+SMTP_USER = "TON_ADRESSE@gmail.com"
+SMTP_PASSWORD = "MOT_DE_PASSE_APPLICATION"
+MAIL_TO = "TON_ADRESSE@gmail.com"
+
+# =====================
+# FONCTIONS
+# =====================
+
+def hash_content(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def load_state():
+    if os.path.exists(STATE_FILE):
+        with open(STATE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def save_state(state):
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, indent=2)
+
 
 def send_mail(subject, body):
-    msg = MIMEText(body)
+    msg = MIMEText(body, "plain", "utf-8")
     msg["Subject"] = subject
     msg["From"] = SMTP_USER
     msg["To"] = MAIL_TO
+
     with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
         server.starttls()
         server.login(SMTP_USER, SMTP_PASSWORD)
         server.send_message(msg)
 
-# -------------------
-# URL à surveiller
-# -------------------
-URL = "https://var.fff.fr/football-animation-et-loisirs/?site_id=6962_6098_10307_27589_23969_4"
 
-# Fichier pour mémoriser l'état précédent
-STATE_FILE = "state.json"
+# =====================
+# MAIN
+# =====================
 
-# Charger l'état précédent
-try:
-    with open(STATE_FILE, "r") as f:
-        state = json.load(f)
-except:
-    state = {"teams": []}
+def main():
+    state = load_state()
+    changes = []
 
-# -------------------
-# Lancer Playwright pour récupérer les noms d'équipes
-# -------------------
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    page = browser.new_page()
-    page.goto(URL)
-    page.wait_for_timeout(3000)  # attendre que le JS charge la page
-    # Sélecteur CSS exact pour les noms d'équipes sur cette page FFF
-    teams = [el.inner_text() for el in page.query_selector_all("div.team-name")]
-    browser.close()
+    for url in URLS:
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
 
-# -------------------
-# Comparer avec l'état précédent
-# -------------------
-new_teams = [t for t in teams if t not in state["teams"]]
+        html = response.text
+        current_hash = hash_content(html)
 
-if new_teams:
-    body = "Nouveaux matchs détectés :\n" + "\n".join(new_teams)
-    send_mail("Notification FFF - Nouveaux matchs", body)
+        previous_hash = state.get(url)
 
-# -------------------
-# Sauvegarder le nouvel état
-# -------------------
-with open(STATE_FILE, "w") as f:
-    json.dump({"teams": teams}, f)
+        if previous_hash != current_hash:
+            changes.append(url)
+            state[url] = current_hash
+
+    if changes:
+        body = "🔔 Changement détecté sur les pages suivantes :\n\n"
+        body += "\n".join(changes)
+
+        send_mail(
+            subject="⚽ Mise à jour détectée sur les scores FFF",
+            body=body
+        )
+
+    save_state(state)
+
+
+if __name__ == "__main__":
+    main()
