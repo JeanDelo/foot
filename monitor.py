@@ -4,27 +4,26 @@ import json
 import os
 import smtplib
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from datetime import datetime
 
 # =====================
-# CONFIGURATION
+# CONFIG
 # =====================
 
-URLS = [
-    "https://var.fff.fr/football-animation-et-loisirs/?site_id=6962_6098_10307_27589_23969_1",
-    "https://var.fff.fr/football-animation-et-loisirs/?site_id=6962_6098_10307_27589_23969_4"
-]
-
+URLS_FILE = "urls.txt"
 STATE_FILE = "state.json"
 
-# ---- EMAIL ----
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-SMTP_USER = "TON_ADRESSE@gmail.com"
-SMTP_PASSWORD = "MOT_DE_PASSE_APPLICATION"
-MAIL_TO = "TON_ADRESSE@gmail.com"
+
+SMTP_USER = os.getenv("SMTP_USER")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+MAIL_TO = SMTP_USER
+
 
 # =====================
-# FONCTIONS
+# UTILS
 # =====================
 
 def hash_content(text: str) -> str:
@@ -40,19 +39,22 @@ def load_state():
 
 def save_state(state):
     with open(STATE_FILE, "w", encoding="utf-8") as f:
-        json.dump(state, f, indent=2)
+        json.dump(state, f, indent=2, ensure_ascii=False)
 
 
 def send_mail(subject, body):
-    msg = MIMEText(body, "plain", "utf-8")
-    msg["Subject"] = subject
+    msg = MIMEMultipart()
     msg["From"] = SMTP_USER
     msg["To"] = MAIL_TO
+    msg["Subject"] = subject
 
-    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-        server.starttls()
-        server.login(SMTP_USER, SMTP_PASSWORD)
-        server.send_message(msg)
+    msg.attach(MIMEText(body, "plain", "utf-8"))
+
+    server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+    server.starttls()
+    server.login(SMTP_USER, SMTP_PASSWORD)
+    server.sendmail(SMTP_USER, MAIL_TO, msg.as_string())
+    server.quit()
 
 
 # =====================
@@ -60,32 +62,44 @@ def send_mail(subject, body):
 # =====================
 
 def main():
+    if not SMTP_USER or not SMTP_PASSWORD:
+        raise RuntimeError("SMTP_USER ou SMTP_PASSWORD manquant (secrets GitHub)")
+
     state = load_state()
+    new_state = {}
+
     changes = []
 
-    for url in URLS:
-        response = requests.get(url, timeout=30)
-        response.raise_for_status()
+    with open(URLS_FILE, "r", encoding="utf-8") as f:
+        urls = [
+            line.strip()
+            for line in f
+            if line.strip() and not line.strip().startswith("#")
+        ]
 
-        html = response.text
-        current_hash = hash_content(html)
+    for url in urls:
+        try:
+            r = requests.get(url, timeout=30)
+            r.raise_for_status()
 
-        previous_hash = state.get(url)
+            content = r.text
+            content_hash = hash_content(content)
+            new_state[url] = content_hash
 
-        if previous_hash != current_hash:
-            changes.append(url)
-            state[url] = current_hash
+            if url not in state:
+                changes.append(f"[NOUVELLE PAGE]\n{url}\n")
+            elif state[url] != content_hash:
+                changes.append(f"[CHANGEMENT DÉTECTÉ]\n{url}\n")
+
+        except Exception as e:
+            changes.append(f"[ERREUR]\n{url}\n{e}\n")
 
     if changes:
-        body = "🔔 Changement détecté sur les pages suivantes :\n\n"
-        body += "\n".join(changes)
+        now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+        body = f"Changements détectés ({now})\n\n" + "\n".join(changes)
+        send_mail("Web Monitor – changement détecté", body)
 
-        send_mail(
-            subject="⚽ Mise à jour détectée sur les scores FFF",
-            body=body
-        )
-
-    save_state(state)
+    save_state(new_state)
 
 
 if __name__ == "__main__":
