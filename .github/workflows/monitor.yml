@@ -19,9 +19,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      # 3️⃣ Installer les dépendances nécessaires
+      # 3️⃣ Installer Playwright et Chromium
       - name: Install dependencies
-        run: pip install requests beautifulsoup4 lxml pytz
+        run: |
+          pip install playwright
+          playwright install chromium
 
       # 4️⃣ Lancer le script monitor.py
       - name: Run monitor
