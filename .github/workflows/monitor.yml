@@ -2,32 +2,26 @@ name: Web Monitor
 
 on:
   schedule:
-    - cron: "0 * * * *"  # toutes les heures
-  workflow_dispatch: {}   # permet de lancer manuellement
+    - cron: "0 * * * *"   # toutes les heures
+  workflow_dispatch:
 
 jobs:
   check:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Récupérer le dépôt
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # 2️⃣ Installer Python
-      - name: Install Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # 3️⃣ Installer Playwright et Chromium
       - name: Install dependencies
         run: |
-          pip install playwright
-          playwright install chromium
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 lxml
 
-      # 4️⃣ Lancer le script monitor.py
       - name: Run monitor
         run: python monitor.py
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
