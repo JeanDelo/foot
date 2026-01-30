@@ -2,26 +2,33 @@ name: Web Monitor
 
 on:
   schedule:
-    - cron: "0 * * * *"   # toutes les heures
-  workflow_dispatch:
+    - cron: "0 * * * *"   # toutes les heures (UTC)
+  workflow_dispatch: {}   # lancement manuel possible
 
 jobs:
   check:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Récupérer le dépôt
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      # 2️⃣ Installer Python
+      - name: Install Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
+      # 3️⃣ Installer les dépendances Python
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install requests beautifulsoup4 lxml
 
+      # 4️⃣ Lancer le script monitor.py avec les secrets SMTP
       - name: Run monitor
         run: python monitor.py
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
