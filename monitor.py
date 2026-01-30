@@ -3,6 +3,7 @@ import hashlib
 import json
 import os
 import smtplib
+from bs4 import BeautifulSoup
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
@@ -28,6 +29,21 @@ MAIL_TO = SMTP_USER
 
 def hash_content(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def extract_visible_text(html: str) -> str:
+    soup = BeautifulSoup(html, "lxml")
+
+    # Supprimer scripts et styles
+    for tag in soup(["script", "style", "noscript"]):
+        tag.decompose()
+
+    text = soup.get_text(separator=" ")
+
+    # Normalisation des espaces
+    text = " ".join(text.split())
+
+    return text
 
 
 def load_state():
@@ -67,7 +83,6 @@ def main():
 
     state = load_state()
     new_state = {}
-
     changes = []
 
     with open(URLS_FILE, "r", encoding="utf-8") as f:
@@ -82,14 +97,14 @@ def main():
             r = requests.get(url, timeout=30)
             r.raise_for_status()
 
-            content = r.text
-            content_hash = hash_content(content)
+            visible_text = extract_visible_text(r.text)
+            content_hash = hash_content(visible_text)
             new_state[url] = content_hash
 
             if url not in state:
                 changes.append(f"[NOUVELLE PAGE]\n{url}\n")
             elif state[url] != content_hash:
-                changes.append(f"[CHANGEMENT DÉTECTÉ]\n{url}\n")
+                changes.append(f"[CHANGEMENT RÉEL DÉTECTÉ]\n{url}\n")
 
         except Exception as e:
             changes.append(f"[ERREUR]\n{url}\n{e}\n")
