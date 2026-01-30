@@ -32,3 +32,12 @@ jobs:
         env:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+
+      # 5️⃣ Commit state.json si changé
+      - name: Commit state.json
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add state.json
+          git diff --quiet || git commit -m "Update state.json"
+          git push
