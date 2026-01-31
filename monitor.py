@@ -3,10 +3,10 @@ import hashlib
 import json
 import os
 import smtplib
-from bs4 import BeautifulSoup
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 # =====================
 # CONFIG
@@ -22,7 +22,6 @@ SMTP_USER = os.getenv("SMTP_USER")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 MAIL_TO = SMTP_USER
 
-
 # =====================
 # UTILS
 # =====================
@@ -30,40 +29,21 @@ MAIL_TO = SMTP_USER
 def hash_content(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
-
-def extract_visible_text(html: str) -> str:
-    soup = BeautifulSoup(html, "lxml")
-
-    # Supprimer scripts et styles
-    for tag in soup(["script", "style", "noscript"]):
-        tag.decompose()
-
-    text = soup.get_text(separator=" ")
-
-    # Normalisation des espaces
-    text = " ".join(text.split())
-
-    return text
-
-
 def load_state():
     if os.path.exists(STATE_FILE):
         with open(STATE_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
 
-
 def save_state(state):
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(state, f, indent=2, ensure_ascii=False)
-
 
 def send_mail(subject, body):
     msg = MIMEMultipart()
     msg["From"] = SMTP_USER
     msg["To"] = MAIL_TO
     msg["Subject"] = subject
-
     msg.attach(MIMEText(body, "plain", "utf-8"))
 
     server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
@@ -72,6 +52,16 @@ def send_mail(subject, body):
     server.sendmail(SMTP_USER, MAIL_TO, msg.as_string())
     server.quit()
 
+def extract_visible_text(html: str) -> str:
+    soup = BeautifulSoup(html, "lxml")
+    # Supprimer scripts et styles
+    for tag in soup(["script", "style"]):
+        tag.decompose()
+    # Récupérer le texte visible
+    text = soup.get_text(separator=" ", strip=True)
+    # Normaliser les espaces
+    text = " ".join(text.split())
+    return text
 
 # =====================
 # MAIN
@@ -83,6 +73,7 @@ def main():
 
     state = load_state()
     new_state = {}
+
     changes = []
 
     with open(URLS_FILE, "r", encoding="utf-8") as f:
@@ -97,8 +88,8 @@ def main():
             r = requests.get(url, timeout=30)
             r.raise_for_status()
 
-            visible_text = extract_visible_text(r.text)
-            content_hash = hash_content(visible_text)
+            content_text = extract_visible_text(r.text)
+            content_hash = hash_content(content_text)
             new_state[url] = content_hash
 
             if url not in state:
@@ -115,7 +106,6 @@ def main():
         send_mail("Web Monitor – changement détecté", body)
 
     save_state(new_state)
-
 
 if __name__ == "__main__":
     main()
