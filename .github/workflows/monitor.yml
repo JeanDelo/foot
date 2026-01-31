@@ -26,18 +26,23 @@ jobs:
           pip install --upgrade pip
           pip install requests beautifulsoup4 lxml
 
-      # 4️⃣ Lancer le script monitor.py avec les secrets SMTP
+      # 4️⃣ Lancer le script monitor.py
       - name: Run monitor
         run: python monitor.py
         env:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
 
-      # 5️⃣ Commit state.json si changé
+      # 5️⃣ Commit state.json si nécessaire
       - name: Commit state.json
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add state.json
-          git diff --quiet || git commit -m "Update state.json"
-          git push
+
+          if [ -f state.json ]; then
+            git add state.json
+            git commit -m "Update state.json" || echo "No changes to commit"
+            git push
+          else
+            echo "state.json does not exist"
+          fi
