@@ -1,0 +1,150 @@
+URL: https://var.fff.fr/football-animation-et-loisirs/?site_id=6962_6098_10307_27589_23996_3
+Date: 2026-03-18T09:44:07.668350
+Hash: 20eb43e0537fbe9d909fdff3e99a754d0c7d7074e8a6e7dc2ae72dfefc6ca2c8
+
+=== SCORES ===
+=== Tableau 1 ===
+Epreuve / phase | Secteur | Poule
+U11 / Phase 3 | NIVEAU 2 | HYERES CUERS TOULON LA SEYNE
+
+=== CONTENU COMPLET ===
+Football Animation et Loisirs – DISTRICT DU VAR DE FOOTBALL
+samedi 28 mars 2026                    - 11h30
+TOULON - STADE MERCHEYER
+Club organisateur
+SPORTING CLUB TOULON
+Informations générales
+Epreuve / phase
+Secteur
+Poule
+U11 / Phase 3
+NIVEAU 2
+HYERES CUERS TOULON LA SEYNE
+équipes
+SPORTING CLUB TOULON 2
+U.S. PRADETANE 1
+ATHLECTIC CLUB BERTHE 1
+Compétitions
+CHAMPIONNAT
+COUPE
+Sélectionnez un championnat
+Champ Départemental D1
+Champ Départemental D2
+Champ Départemental D3
+Champ Loisirs Draguignan
+Champ Départemental D4
+Champ U19 D1
+Champ U17 D1
+Champ U17 D2
+Champ U17 D3
+Champ U16 D1
+Champ U16 D2
+champ U16 D3
+Champ U15 D1
+Champ U15 D2
+Champ U15 D3
+Champ U14 D1
+Champ U14 D2
+Champ  U14 D3
+Champ U13 Niveau 2
+Champ U13 Niveau 1
+Champ U13 Niveau 3
+Champ U13 Niveau 4
+Champ U12 Niveau 2
+Champ U12 Niveau 1
+Champ U12 Niveau 3
+Champ U12 Niveau 4
+Champ Féminines Séniors à 8 - D1
+Champ Féminines Séniors à 8 - D2
+Champ U18 Féminines à 11
+U15 Féminines à 11
+Champ U15 Féminines à  8
+Critérium U13F à 8 / Niveau 3
+Critérium U13F à 8 / niveau 2
+Critérium U13F à 8 / Niveau 1
+1ere Division Futsal
+2eme Division Futsal
+U17 FUTSAL
+CHALLENGE U15G / FUTSAL
+Champ U15 Futsal
+Champ Foot  Loisirs
+{"cp_no":441103,"name":"Champ D\u00e9partemental D1","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441104,"name":"Champ D\u00e9partemental D2","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441105,"name":"Champ D\u00e9partemental D3","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442095,"name":"Champ Loisirs Draguignan","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441106,"name":"Champ D\u00e9partemental D4","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":444439,"name":"Champ U19 D1","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441606,"name":"Champ U17 D1","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441607,"name":"Champ U17 D2","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE UNIQUE","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441608,"name":"Champ U17 D3","phases":[{"number":1,"name":"PHASE 1","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441609,"name":"Champ U16 D1","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441610,"name":"Champ U16 D2","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441612,"name":"champ U16 D3","phases":[{"number":1,"name":"PHASE 1","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441613,"name":"Champ U15 D1","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441614,"name":"Champ U15 D2","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441615,"name":"Champ U15 D3","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441617,"name":"Champ U14 D1","phases":[{"number":1,"name":"1","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441618,"name":"Champ U14 D2","phases":[{"number":1,"name":"1","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":441616,"name":"Champ  U14 D3","phases":[{"number":1,"name":"PHASE 1","groups":[{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":4,"name":"POULE D","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442002,"name":"Champ U13 Niveau 2","phases":[{"number":2,"name":"2\u00e8me phase","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442194,"name":"Champ U13 Niveau 1","phases":[{"number":2,"name":"2\u00e8me phase","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442003,"name":"Champ U13 Niveau 3","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":2,"name":"2\u00e8me phase","groups":[{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":4,"name":"POULE D","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442004,"name":"Champ U13 Niveau 4","phases":[{"number":2,"name":"2\u00e8me phase","groups":[{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":5,"name":"POULE E","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":7,"name":"POULE G","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":8,"name":"POULE H","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":4,"name":"POULE D","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":6,"name":"POULE F","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":4,"name":"POULE D","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":6,"name":"POULE F","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":5,"name":"POULE E","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":7,"name":"POULE G","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442269,"name":"Champ U12 Niveau 2","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":2,"name":"phase 2","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442268,"name":"Champ U12 Niveau 1","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":2,"name":"phase 2","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442270,"name":"Champ U12 Niveau 3","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":6,"name":"POULE F","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":4,"name":"POULE D","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":5,"name":"POULE E","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":2,"name":"phase 2","groups":[{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":4,"name":"POULE D","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442271,"name":"Champ U12 Niveau 4","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":4,"name":"POULE D","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":5,"name":"POULE E","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":8,"name":"POULE H","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":7,"name":"POULE G","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":6,"name":"POULE F","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":2,"name":"phase 2","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":6,"name":"POULE F","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":5,"name":"POULE E","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":10,"name":"POULE J","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":8,"name":"POULE H","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":4,"name":"POULE D","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":9,"name":"POULE I","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":7,"name":"POULE G","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442053,"name":"Champ F\u00e9minines S\u00e9niors \u00e0 8 - D1","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442054,"name":"Champ F\u00e9minines S\u00e9niors \u00e0 8 - D2","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442055,"name":"Champ U18 F\u00e9minines \u00e0 11","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442060,"name":"U15 F\u00e9minines \u00e0 11","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442059,"name":"Champ U15 F\u00e9minines \u00e0  8","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447391,"name":"Crit\u00e9rium U13F \u00e0 8 \/ Niveau 3","phases":[{"number":1,"name":"phase 2","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447389,"name":"Crit\u00e9rium U13F \u00e0 8 \/ niveau 2","phases":[{"number":1,"name":"phase 2","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442061,"name":"Crit\u00e9rium U13F \u00e0 8 \/ Niveau 1","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":3,"name":"POULE C","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":2,"name":"phase 2","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442091,"name":"1ere Division Futsal","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442092,"name":"2eme Division Futsal","phases":[{"number":1,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":443562,"name":"U17 FUTSAL","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447410,"name":"CHALLENGE U15G \/ FUTSAL","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442093,"name":"Champ U15 Futsal","phases":[{"number":1,"name":"Phase 1","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442094,"name":"Champ Foot  Loisirs","phases":[{"number":2,"name":"Phase 2","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":1,"name":"Unique","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+Sélectionnez une poule
+Valider
+Sélectionnez une coupe
+Coupe du Var Séniors
+Coupe du Var U19
+Coupe du Var U17
+Coupe du Var U16
+Coupe du Var U15
+Coupe du Var U14
+Coupe du Var Féminines à 8
+COUPE DU VAR U18 F A 11
+COUPE DU VAR U15F A 8
+Coupe du Var Féminines U15 à 11
+Coupe du Var Séniors Futsal
+CHALLENGE U15 FUTSAL
+Coupe du Var Loisirs
+FIN CHAMP LOISIRS
+{"cp_no":442096,"name":"Coupe du Var S\u00e9niors","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442097,"name":"Coupe du Var U19","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442099,"name":"Coupe du Var U17","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442100,"name":"Coupe du Var U16","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442101,"name":"Coupe du Var U15","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442102,"name":"Coupe du Var U14","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442196,"name":"Coupe du Var F\u00e9minines \u00e0 8","phases":[{"number":1,"name":"UNIQUE","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447243,"name":"COUPE DU VAR U18 F A 11","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447241,"name":"COUPE DU VAR U15F A 8","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442197,"name":"Coupe du Var F\u00e9minines U15 \u00e0 11","phases":[{"number":1,"name":"UNIQUE","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442198,"name":"Coupe du Var S\u00e9niors Futsal","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447412,"name":"CHALLENGE U15 FUTSAL","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442201,"name":"Coupe du Var Loisirs","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":445426,"name":"FIN CHAMP LOISIRS","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+Sélectionnez une poule
+Valider
+PLANNING 2025-2026
+DESIDERATAS
+DOCUMENTS FOOT EDUCATIF
+PROCEDURES F.M.I.
+ADHESION AMICALE DES EDUCATEURS
+Nos Partenaires
+INFORMATIONS ASSURANCES - LIGUE MEDITERRANEE
