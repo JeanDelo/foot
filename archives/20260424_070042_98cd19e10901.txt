@@ -1,0 +1,82 @@
+URL: https://var.fff.fr/football-animation-et-loisirs/?site_id=6962_6098_10307_27589_23997_4
+Date: 2026-04-24T07:00:42.556699
+Hash: edddff0c0a9d04b9355b2ee1012dc982b82989cb5976f14aa7f64149f0a2e22a
+
+=== SCORES ===
+=== Tableau 1 ===
+Epreuve / phase | Secteur | Poule
+U11 / Phase 3 | NIVEAU 2 | HYERES CUERS TOULON LA SEYNE
+
+=== CONTENU COMPLET ===
+Football Animation et Loisirs – DISTRICT DU VAR DE FOOTBALL
+samedi 04 avril 2026                    - 14h
+TOULON - STADE DES ROUTES
+Club organisateur
+USAM TOULON
+Informations générales
+Epreuve / phase
+Secteur
+Poule
+U11 / Phase 3
+NIVEAU 2
+HYERES CUERS TOULON LA SEYNE
+équipes
+SPORTING CLUB TOULON 2
+SIX FOURS LE BRUSC F.C. 1
+USAM TOULON 1
+Matchs
+USAM TOULON 1
+-
+SPORTING CLUB TOULON 2
+USAM TOULON 1
+-
+SIX FOURS LE BRUSC F.C. 1
+SIX FOURS LE BRUSC F.C. 1
+-
+SPORTING CLUB TOULON 2
+Compétitions
+CHAMPIONNAT
+COUPE
+Sélectionnez un championnat
+Sélectionnez une poule
+Valider
+Sélectionnez une coupe
+CHALLENGE U15G / FUTSAL
+Coupe du Var Séniors
+Coupe du Var U19
+Coupe du Var U17
+Coupe du Var U16
+Coupe du Var U15
+Coupe du Var U14
+Coupe du Var Féminines à 8
+COUPE DU VAR U18 F A 11
+COUPE DU VAR U15F A 8
+Coupe du Var Féminines U15 à 11
+Coupe du Var Séniors Futsal
+CHALLENGE U15 FUTSAL
+Coupe du Var Loisirs
+FIN CHAMP LOISIRS
+{"cp_no":447410,"name":"CHALLENGE U15G \/ FUTSAL","phases":[{"number":2,"name":"1\u00e8re phase","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]},{"number":1,"name":"phase unique","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442096,"name":"Coupe du Var S\u00e9niors","phases":[{"number":1,"name":"Unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442097,"name":"Coupe du Var U19","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442099,"name":"Coupe du Var U17","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442100,"name":"Coupe du Var U16","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442101,"name":"Coupe du Var U15","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442102,"name":"Coupe du Var U14","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442196,"name":"Coupe du Var F\u00e9minines \u00e0 8","phases":[{"number":1,"name":"UNIQUE","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447243,"name":"COUPE DU VAR U18 F A 11","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447241,"name":"COUPE DU VAR U15F A 8","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442197,"name":"Coupe du Var F\u00e9minines U15 \u00e0 11","phases":[{"number":1,"name":"UNIQUE","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442198,"name":"Coupe du Var S\u00e9niors Futsal","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":447412,"name":"CHALLENGE U15 FUTSAL","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":2,"name":"POULE B","cdg":{"cg_no":76},"diffusable":true,"matchs":true},{"stage_number":1,"name":"POULE A","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":442201,"name":"Coupe du Var Loisirs","phases":[{"number":1,"name":"unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+{"cp_no":445426,"name":"FIN CHAMP LOISIRS","phases":[{"number":1,"name":"phase unique","groups":[{"stage_number":1,"name":"POULE 0","cdg":{"cg_no":76},"diffusable":true,"matchs":true}]}]}
+Sélectionnez une poule
+Valider
+PLANNING 2025-2026
+DESIDERATAS
+DOCUMENTS FOOT EDUCATIF
+PROCEDURES F.M.I.
+ADHESION AMICALE DES EDUCATEURS
+Nos Partenaires
+INFORMATIONS ASSURANCES - LIGUE MEDITERRANEE
